@@ -1,0 +1,27 @@
+<div class="create-post">
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="col-6 mb-3 mx-auto">
+        <label for="title" class="form-label">Post title</label>
+        <textarea class="form-control" id="title" formControlName="title" rows="4"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 mb-3 mx-auto">
+        <label for="body" class="form-label">Post details</label>
+        <textarea class="form-control" id="body" formControlName="body" rows="6"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6 mb-3 mx-auto">
+        <label for="title" class="form-label">Select an user</label>
+        <select class="form-select" aria-label="Default select example" formControlName="user_id">
+          <option *ngFor="let user of users" [value]="user.id">{{ user.name }}</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-footer">
+      <button class="btn btn-success" [disabled]="form.invalid" (click)="onSubmit()">Save post</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,12 @@
+<div class="post-card">
+  <div *ngIf="post" class="post">
+    <h4>{{post.title}}</h4>
+    <p class="post-card__user-name">{{currentUser?.name}}</p>
+    <p class="post-card__user-email">{{currentUser?.email}}</p>
+    <p class="post-card__body">{{post.body}}</p>
+    <div>
+      <button type="button" class="btn btn-secondary me-2" (click)="onEdit(post.id)">Edit</button>
+      <button type="button" class="btn btn-danger" (click)="onDelete(post.id)">Delete</button>
+    </div>
+  </div>
+</div>

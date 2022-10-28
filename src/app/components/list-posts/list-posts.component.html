@@ -1,0 +1,22 @@
+<div class="list-posts">
+  <div class="list-posts__add-btn">
+    <button type="button" class="btn btn-primary" (click)="addEditPost('create')">Add Card</button>
+  </div>
+  <div class="row" *ngIf="postsList$ | async as postList">
+    <div class="col-lg-3 col-md-4 mb-4" *ngFor="let post of postList">
+      <app-post-card
+        [post]="post"
+        [usersListMap]="usersListMap"
+        (editPost)="editPost($event)"
+        (deletePost)="deletePost($event)"
+      ></app-post-card>
+    </div>
+  </div>
+
+  <!--<div *ngFor="let user of usersList">
+    <div>
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.email }}</p>
+    </div>
+  </div>-->
+</div>
